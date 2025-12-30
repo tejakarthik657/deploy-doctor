@@ -1,0 +1,1 @@
+{"version":3,"file":"dependency-update-rule.d.ts","sourceRoot":"","sources":["../../src/rules/dependency-update-rule.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,KAAK,EAAE,cAAc,EAAE,MAAM,UAAU,CAAC;AAEvD,qBAAa,oBAAqB,YAAW,IAAI;IAC/C,IAAI,SAAwB;IAC5B,WAAW,SAAsC;IAE3C,KAAK,CAAC,WAAW,EAAE,MAAM,EAAE,cAAc,EAAE,cAAc,GAAG,OAAO,CAAC,KAAK,EAAE,CAAC;CAenF"}

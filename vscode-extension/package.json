@@ -1,0 +1,40 @@
+{
+  "name": "deploy-doctor",
+  "displayName": "Deploy Doctor",
+  "description": "Automatically diagnose and fix Vercel & Render deployment failures",
+  "version": "0.1.0",
+  "publisher": "deploy-doctor",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["DevOps", "Other"],
+  "keywords": [
+    "deployment",
+    "vercel",
+    "render",
+    "devops",
+    "ci",
+    "debugging"
+  ],
+  "activationEvents": [
+    "onCommand:deploy-doctor.run"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "deploy-doctor.run",
+        "title": "Deploy Doctor: Diagnose Deployment Failure"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.0.0",
+    "vsce": "^2.15.0"
+  }
+}

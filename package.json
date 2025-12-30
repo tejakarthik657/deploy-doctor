@@ -1,0 +1,28 @@
+{
+  "name": "deploy-doctor-monorepo",
+  "version": "0.1.0",
+  "description": "Deploy Doctor - Automatic deployment failure diagnosis and repair",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "build:core": "npm run build --workspace=@deploy-doctor/core",
+    "build:cli": "npm run build --workspace=deploy-doctor",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "release": "npm run build && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/deploy-doctor.git"
+  },
+  "keywords": ["deployment", "vercel", "render", "devops", "ci", "debugging"],
+  "author": "Deploy Doctor Team",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^18.0.0"
+  }
+}
