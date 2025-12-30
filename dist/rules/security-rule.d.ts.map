@@ -1,0 +1,1 @@
+{"version":3,"file":"security-rule.d.ts","sourceRoot":"","sources":["../../src/rules/security-rule.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,KAAK,EAAE,cAAc,EAAE,MAAM,UAAU,CAAC;AAEvD,qBAAa,YAAa,YAAW,IAAI;IACvC,IAAI,SAAc;IAClB,WAAW,SAAyD;IAE9D,KAAK,CAAC,WAAW,EAAE,MAAM,EAAE,cAAc,EAAE,cAAc,GAAG,OAAO,CAAC,KAAK,EAAE,CAAC;CAcnF"}

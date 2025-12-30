@@ -1,0 +1,31 @@
+{
+  "name": "deploy-doctor",
+  "version": "0.1.0",
+  "description": "CLI for Deploy Doctor - Automatic deployment failure diagnosis and repair",
+  "bin": {
+    "deploy-doctor": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["deployment", "vercel", "render", "cli", "devops"],
+  "author": "Deploy Doctor Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/deploy-doctor.git",
+    "directory": "packages/cli"
+  },
+  "dependencies": {
+    "@deploy-doctor/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^18.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build packages
+      run: npm run build
+
+    - name: Run tests
+      run: npm test
+
+    - name: Run linting
+      run: npm run lint
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'npm'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build packages
+      run: npm run build
+
+    - name: Publish core package
+      run: npm publish --workspace=@deploy-doctor/core --access public
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Publish CLI package
+      run: npm publish --workspace=deploy-doctor
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Setup VSCE
+      run: npm install -g @vscode/vsce
+
+    - name: Publish VS Code extension
+      run: |
+        cd packages/vscode-extension
+        vsce publish -p ${{ secrets.VSCE_TOKEN }}
